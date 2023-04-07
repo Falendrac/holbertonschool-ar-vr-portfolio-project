@@ -7602,6 +7602,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6136310744180711013, guid: 0581a1d21d1039843a43a7d7b674d6d3, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400772035759358086, guid: 0581a1d21d1039843a43a7d7b674d6d3, type: 3}
+      propertyPath: m_VelocityDamping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7400772035759358086, guid: 0581a1d21d1039843a43a7d7b674d6d3, type: 3}
       propertyPath: m_InteractionManager
       value: 
