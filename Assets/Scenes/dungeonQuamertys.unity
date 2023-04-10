@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: m_LocomotionProvider
       value: 
       objectReference: {fileID: 439996156}
+    - target: {fileID: 6443962388573261299, guid: 6760bc95c1fc5274f98a0cd245d30c33, type: 3}
+      propertyPath: m_Height
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443962388573261299, guid: 6760bc95c1fc5274f98a0cd245d30c33, type: 3}
+      propertyPath: m_Center.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6443962388573261300, guid: 6760bc95c1fc5274f98a0cd245d30c33, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -144,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6443962388573261300, guid: 6760bc95c1fc5274f98a0cd245d30c33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.86
+      value: -3.055
       objectReference: {fileID: 0}
     - target: {fileID: 6443962388573261300, guid: 6760bc95c1fc5274f98a0cd245d30c33, type: 3}
       propertyPath: m_LocalPosition.z
@@ -184,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6443962388573261303, guid: 6760bc95c1fc5274f98a0cd245d30c33, type: 3}
       propertyPath: m_CameraYOffset
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6760bc95c1fc5274f98a0cd245d30c33, type: 3}
