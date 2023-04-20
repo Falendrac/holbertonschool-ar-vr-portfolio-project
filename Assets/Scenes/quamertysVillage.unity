@@ -562,6 +562,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 6443962388387202415}
+    - target: {fileID: 3582781235866805425, guid: 0c193cda4d1652a4985c0bd1a14f6a28, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1818030720}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c193cda4d1652a4985c0bd1a14f6a28, type: 3}
 --- !u!4 &56382127 stripped
@@ -1292,10 +1296,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1818030720}
-    - target: {fileID: 1391152626842223648, guid: 6df56e191e1b763448089b614a1eda15, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7240994844093601614, guid: 6df56e191e1b763448089b614a1eda15, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1339,10 +1339,6 @@ PrefabInstance:
     - target: {fileID: 7240994844093601614, guid: 6df56e191e1b763448089b614a1eda15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7490955206590284948, guid: 6df56e191e1b763448089b614a1eda15, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8013872819141217780, guid: 6df56e191e1b763448089b614a1eda15, type: 3}
       propertyPath: m_Name
