@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
 
 /// <summary>
@@ -15,24 +16,29 @@ public class WeaponsHandler : MonoBehaviour
     [SerializeField]
     GameObject canvas;
 
+    private Vector3 lastPosition;
+    private float speed;
+
+    void Start()
+    {
+        lastPosition = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        WeaponHitDetection();
+        speed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;
+        lastPosition = transform.position;
     }
 
     /// <summary>
     /// Detect if the weapon hit an enemy
     /// </summary>
-    void WeaponHitDetection()
+    void OnCollisionEnter(Collision other)
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, range, transform.forward);
-        foreach (RaycastHit hit in hits)
+        if (other.collider.tag == "Enemy" && speed > 2)
         {
-            if (hit.transform.CompareTag("Enemy"))
-            {
-                Debug.Log("Hit");
-            }
+            other.gameObject.GetComponent<EnemyHandler>().TakeDamage(damage);
         }
     }
 

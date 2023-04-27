@@ -59,7 +59,6 @@ public class EnemyHandler : MonoBehaviour
             return;
         }
 
-        slider.value = health;
         CanvasRotation();
         PlayerDetection();
     }
@@ -71,6 +70,7 @@ public class EnemyHandler : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        slider.value = health / 100;
 
         if (health <= 0 && !isDead)
         {
@@ -83,7 +83,6 @@ public class EnemyHandler : MonoBehaviour
     {
         isDead = true;
 
-        GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = false;
 
         enemyAnimator.runtimeAnimatorController = animations[2];
@@ -118,11 +117,11 @@ public class EnemyHandler : MonoBehaviour
 
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
-            if (distanceToPlayer < distanceOfAttack)
+            if (distanceToPlayer < distanceOfAttack && !isDead)
             {
                 StartCoroutine(AttackPlayer());
             }
-            else
+            else if (!isDead)
             {
                 EnemyMovement();
             }
