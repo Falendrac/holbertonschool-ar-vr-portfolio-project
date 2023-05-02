@@ -35,10 +35,12 @@ public class EnemyHandler : MonoBehaviour
     private Transform cameraTransform;
     private Animator enemyAnimator;
     private float health;
+    private bool isAttack = false;
     private bool isDead = false;
     private bool playerDetected = false;
     private Vector3 startPosition;
     private Vector3 endPosition;
+    private float rangeHit = 1.5f;
 
 
     // Start is called before the first frame update
@@ -60,7 +62,7 @@ public class EnemyHandler : MonoBehaviour
         }
 
         CanvasRotation();
-        PlayerDetection();
+        StartCoroutine(PlayerDetection());
     }
 
     /// <summary>
@@ -75,7 +77,10 @@ public class EnemyHandler : MonoBehaviour
         if (health <= 0 && !isDead)
         {
             Dead();
+            return;
         }
+
+        DamageAnimation();
     }
 
     // Called when the enemy have not enough health and will be destroyed
@@ -91,7 +96,7 @@ public class EnemyHandler : MonoBehaviour
     }
 
     // Detect the player on his field of view and calculate the distance to go face of the player
-    void PlayerDetection()
+    IEnumerator PlayerDetection()
     {
         if (!playerDetected)
         {
@@ -117,15 +122,20 @@ public class EnemyHandler : MonoBehaviour
 
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
-            if (distanceToPlayer < distanceOfAttack && !isDead)
+            if (distanceToPlayer < distanceOfAttack && !isDead && !isAttack)
             {
+                isAttack = true;
                 StartCoroutine(AttackPlayer());
+                yield return new WaitForSeconds(1.15f);
+                isAttack = false;
             }
-            else if (!isDead)
+            else if (!isDead && !isAttack)
             {
                 EnemyMovement();
             }
         }
+
+        yield return null;
     }
 
     // Move to the player
@@ -148,6 +158,22 @@ public class EnemyHandler : MonoBehaviour
     {
         enemyAnimator.runtimeAnimatorController = animations[0];
 
-        yield return new WaitWhile( () => enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+        yield return new WaitForSeconds(0.22f);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rangeHit))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                hit.transform.parent.GetComponentInParent<PlayerHandler>().TakeDamage(damage);
+            }
+        }
+    }
+
+    // Start the animation when the enemy take damages
+    void DamageAnimation()
+    {
+        enemyAnimator.runtimeAnimatorController = animations[1];
     }
 }

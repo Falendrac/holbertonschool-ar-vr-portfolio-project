@@ -26,6 +26,11 @@ public class PlayerHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            deadCanvas.SetActive(true);
+            StartCoroutine(Respawn());
+        }
     }
 
     /// <summary>
@@ -46,5 +51,11 @@ public class PlayerHandler : MonoBehaviour
     void Dead()
     {
         isDead = true;
+    }
+
+    // Set how the player respawn
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(5f);
     }
 }
