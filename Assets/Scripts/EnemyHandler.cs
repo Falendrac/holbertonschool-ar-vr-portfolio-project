@@ -33,6 +33,7 @@ public class EnemyHandler : MonoBehaviour
     RuntimeAnimatorController[] animations;
 
     private Transform cameraTransform;
+    private Coroutine moveCoroutine;
     private Animator enemyAnimator;
     private float health;
     private bool isAttack = false;
@@ -62,7 +63,7 @@ public class EnemyHandler : MonoBehaviour
         }
 
         CanvasRotation();
-        StartCoroutine(PlayerDetection());
+        moveCoroutine = StartCoroutine(PlayerDetection());
     }
 
     /// <summary>
@@ -79,10 +80,17 @@ public class EnemyHandler : MonoBehaviour
             Dead();
             return;
         }
-
-        DamageAnimation();
+        StopCoroutine(moveCoroutine);
+        StartCoroutine(DamageAnimation());
     }
 
+    // Start the animation when the enemy take damages
+    IEnumerator DamageAnimation()
+    {
+        enemyAnimator.runtimeAnimatorController = animations[1];
+
+        yield return new WaitForSeconds(0.2f);
+    }
     // Called when the enemy have not enough health and will be destroyed
     void Dead()
     {
@@ -169,11 +177,5 @@ public class EnemyHandler : MonoBehaviour
                 hit.transform.parent.GetComponentInParent<PlayerHandler>().TakeDamage(damage);
             }
         }
-    }
-
-    // Start the animation when the enemy take damages
-    void DamageAnimation()
-    {
-        enemyAnimator.runtimeAnimatorController = animations[1];
     }
 }

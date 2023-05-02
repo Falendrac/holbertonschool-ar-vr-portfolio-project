@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerHandler : MonoBehaviour
@@ -56,6 +57,9 @@ public class PlayerHandler : MonoBehaviour
     // Set how the player respawn
     IEnumerator Respawn()
     {
+        GetComponent<CharacterControllerDriver>().enabled = false;
+        GetComponent<ActionBasedController>().enabled = false;
         yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

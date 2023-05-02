@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using TMPro;
 
 /// <summary>
 /// Handle weapons in the VR game, like damage and description

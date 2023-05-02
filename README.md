@@ -24,7 +24,6 @@ Grab some props and furnitures.
 * [Decrepit Dungeon LITE](https://assetstore.unity.com/packages/3d/environments/dungeons/decrepit-dungeon-lite-33936) for the dungeon and props for it
 * [Skeleton Warrior 1](https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/skeleton-warrior-1-222338)
 * [Aged Medieval Weapons-Free](https://assetstore.unity.com/packages/3d/props/weapons/aged-medieval-weapons-free-207255)
-* [Medieval Cartoon Warriors](https://assetstore.unity.com/packages/3d/characters/medieval-cartoon-warriors-90079)
 * [Oculus Integration](https://assetstore.unity.com/packages/tools/integration/oculus-integration-82022)
 * [Skeleton Animations FREE](https://assetstore.unity.com/packages/3d/skeleton-animations-free-217504)
 
