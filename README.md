@@ -26,6 +26,9 @@ Grab some props and furnitures.
 * [Aged Medieval Weapons-Free](https://assetstore.unity.com/packages/3d/props/weapons/aged-medieval-weapons-free-207255)
 * [Oculus Integration](https://assetstore.unity.com/packages/tools/integration/oculus-integration-82022)
 * [Skeleton Animations FREE](https://assetstore.unity.com/packages/3d/skeleton-animations-free-217504)
+* [Footsteps - Essentials](https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879)
+* [Free Fantasy Music - Orchestral Ambience](https://assetstore.unity.com/packages/audio/music/orchestral/free-fantasy-music-orchestral-ambience-212102)
+* [Nature - Essentials](https://assetstore.unity.com/packages/audio/ambient/nature/nature-essentials-208227)
 
 ### Credit
 

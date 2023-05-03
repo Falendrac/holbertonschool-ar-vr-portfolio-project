@@ -37,6 +37,7 @@ public class EnemyHandler : MonoBehaviour
     private Animator enemyAnimator;
     private float health;
     private bool isAttack = false;
+    private bool isDamaged = false;
     private bool isDead = false;
     private bool playerDetected = false;
     private Vector3 startPosition;
@@ -63,7 +64,11 @@ public class EnemyHandler : MonoBehaviour
         }
 
         CanvasRotation();
-        moveCoroutine = StartCoroutine(PlayerDetection());
+
+        if (!isDamaged)
+        {
+            moveCoroutine = StartCoroutine(PlayerDetection());
+        }
     }
 
     /// <summary>
@@ -74,8 +79,9 @@ public class EnemyHandler : MonoBehaviour
     {
         health -= damage;
         slider.value = health / 100;
+        isDamaged = true;
 
-        if (health <= 0 && !isDead)
+        if (health <= 0)
         {
             Dead();
             return;
@@ -89,8 +95,13 @@ public class EnemyHandler : MonoBehaviour
     {
         enemyAnimator.runtimeAnimatorController = animations[1];
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
+
+        isDamaged = false;
+        isAttack = false;
+        playerDetected = true;
     }
+
     // Called when the enemy have not enough health and will be destroyed
     void Dead()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.UI;
 
 public class PlayerHandler : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerHandler : MonoBehaviour
     GameObject leftHand;
     [SerializeField]
     GameObject rightHand;
+    [SerializeField]
+    Slider slider;
 
     private float health;
     private bool isDead = false;
@@ -41,6 +44,8 @@ public class PlayerHandler : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        slider.value = health / 100;
 
         if (health <= 0 && !isDead)
         {
